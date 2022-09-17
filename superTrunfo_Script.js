@@ -79,6 +79,9 @@ var cartaRafa = {
   
     exibirCartaJogador()
     exibirCartaEmBranco()
+    var divResultado = document.getElementById("resultado");
+    htmlResultado = "<p class='resultado-final'>aspargos</p>";
+    divResultado.innerHTML = null
   }
   
   function obtemAtributoSelecionado() {
