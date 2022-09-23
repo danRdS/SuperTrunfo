@@ -1,50 +1,119 @@
-var cartaRafa = {
-    nome: "bulbassauro",
-    imagem: "https://gartic.com.br/imgs/mural/jh/jhonfs/bulbassauro.png",
+var carta1 = {
+    nome: "Mú de Áries",
+    imagem: "https://pm1.narvii.com/6400/89ba68085c0ed6a79f4b14f335c05492311428a8_hq.jpg",
     atributos: {
-      ataque: 7,
-      defesa: 8,
-      magia: 6
+      Ataque: 8,
+      Defesa: 10,
+      Cosmo: 8
     }
   };
   
-  var cartaGui = {
-    nome: "Darth Vader",
-    imagem: "https://static.wikia.nocookie.net/ptstarwars/images/a/ae/Darthvader1_cover.jpg",
+  var carta2 = {
+    nome: "Aldebaran de Touro",
+    imagem: "https://i.pinimg.com/originals/60/52/e2/6052e2288f6a1a2bc6ed460ff2c012ac.png",
     atributos: {
-      ataque: 9,
-      defesa: 8,
-      magia: 2
+      Ataque: 8,
+      Defesa: 5,
+      Cosmo: 7
     }
   };
   
-  var cartaPaulo = {
-    nome: "Shiryu de Dragão",
-    imagem: "https://i.pinimg.com/originals/d4/91/94/d49194130ad744d09d577d1bb7aa6307.jpg",
-    atributos: {
-      ataque: 5,
-      defesa: 9,
-      magia: 10
-    }
-  };
-
-  var cartaDaniel1 = {
+  var carta3 = {
     nome: "Saga de Gêmeos",
     imagem: "https://omaringa.com.br/wp-content/uploads/2021/11/saga-2.jpg",
     atributos: {
-      ataque: 10,
-      defesa: 7,
-      magia: 8
+      Ataque: 10,
+      Defesa: 7,
+      Cosmo: 9
     }
   };
 
-  var cartaDaniel2 = {
-    nome: "Charmander",
-    imagem: "https://sm.ign.com/ign_br/screenshot/default/blob_bkmv.jpg",
+  var carta4 = {
+    nome: "Máscara da Morte de Câncer",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfKk8XHX5NH5iJAEaRhcL7xRj0iNpC1kenIw&usqp=CAU",
     atributos: {
-      ataque: 8,
-      defesa: 7,
-      magia: 7
+      Ataque: 6,
+      Defesa: 4,
+      Cosmo: 7
+    }
+  };
+  
+  var carta5 = {
+    nome: "Aioria de Leão",
+    imagem: "http://pm1.narvii.com/6885/5a6a4204d55c8736142c87d7031590038a3e219er1-480-480v2_00.jpg",
+    atributos: {
+      Ataque: 8,
+      Defesa: 7,
+      Cosmo: 8
+    }
+  };
+  
+  var carta6 = {
+    nome: "Shaka de Virgem",
+    imagem: "http://bp3.blogger.com/_JgK7QpRWVJM/SJHdTU0_vWI/AAAAAAAAAcg/6UP6gor43t4/s400/shaka.bmp",
+    atributos: {
+      Ataque: 9,
+      Defesa: 8,
+      Cosmo: 10
+    }
+  };
+
+  var carta7 = {
+    nome: "Dohko de Libra",
+    imagem: "https://sm.ign.com/ign_br/screenshot/default/captura-de-tela-199_fa3k.png",
+    atributos: {
+      Ataque: 8,
+      Defesa: 10,
+      Cosmo: 9
+    }
+  };
+
+  var carta8 = {
+    nome: "Miro de Escorpião",
+    imagem: "https://fenixdourado.files.wordpress.com/2011/10/tech-milo-scarletneedle1.jpg?w=584",
+    atributos: {
+      Ataque: 8,
+      Defesa: 7,
+      Cosmo: 7
+    }
+  };
+  var carta9 = {
+    nome: "Aioros de Sagitário",
+    imagem: "https://pm1.narvii.com/6867/392b5d747df88a35bc5b41bdca1c930ae0922e76r1-443-332v2_hq.jpg",
+    atributos: {
+      Ataque: 9,
+      Defesa: 7,
+      Cosmo: 9
+    }
+  };
+
+  var carta10 = {
+    nome: "Shura de Capricórnio",
+    imagem: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f85b51c4-c36e-438a-8f26-6ee5f27f6093/d8csuzs-26f2f060-2e69-4b3e-b98c-057180a2be76.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NWI1MWM0LWMzNmUtNDM4YS04ZjI2LTZlZTVmMjdmNjA5M1wvZDhjc3V6cy0yNmYyZjA2MC0yZTY5LTRiM2UtYjk4Yy0wNTcxODBhMmJlNzYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Bu3pCI-A2iRSCj_3AJNhSSS51JlkONUWSvg6RTXd25A",
+    atributos: {
+      Ataque: 8,
+      Defesa: 7,
+      Cosmo: 7
+    }
+  };
+
+  var carta11 = {
+    nome: "Camus de Aquário",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbW2WXWkPgSk_BEJMTsvWs5UE4Y-3K3x9JgBHMK3bXwsIf3mQZ10F8nOM1L4E5--FMxRc&usqp=CAU",
+    atributos: {
+      Ataque: 8,
+      Defesa: 6,
+      Cosmo: 7
+    }
+  };
+
+  var carta12 = {
+    nome: "Afrodite de Peixes",
+    imagem: "https://pm1.narvii.com/6719/460e81ee8aeb47bbad9070eedc215fc71222b049_hq.jpg",
+    atributos: {
+      Ataque: 6,
+      Defesa: 5,
+      Cosmo: 6
     }
   };
 
@@ -52,27 +121,30 @@ var cartaRafa = {
     nome: "???",
     imagem: "https://i.pinimg.com/736x/d3/ff/50/d3ff5055dcced901eda0bf9f82362aa2.jpg",
     atributos: {
-      ataque: 0,
-      defesa: 0,
-      magia: 0
+      Ataque: 0,
+      Defesa: 0,
+      Cosmo: 0
     }
   };
   
-  var cartas = [cartaRafa, cartaGui, cartaPaulo, cartaDaniel1, cartaDaniel2];
-  var cartasJ = [cartaRafa, cartaGui, cartaPaulo, cartaDaniel1, cartaDaniel2];
+  var cartas = [carta1, carta2, carta3, carta4, carta5, carta6];
+  var cartasJ = [carta7, carta8, carta9, carta10, carta11, carta12];
   var cartaMaquina;
   var cartaJogador;
+
+  var sorteio = {
+    numeroCartaMaquina(){
+      return sortearCartaMaquina = parseInt(Math.random() * cartas.length)
+    },
+    numeroCartaJogador(){
+      return sortearCartaJogador = parseInt(Math.random() * cartasJ.length)
+    }
+  }
   
   function sortearCarta() {
-    var numeroCartaMaquina = parseInt(Math.random() * cartas.length);
-    cartaMaquina = cartas[numeroCartaMaquina];
-  
-    var numeroCartaJogador = parseInt(Math.random() * cartasJ.length);
-    /*while (numeroCartaMaquina == numeroCartaJogador) {
-      numeroCartaJogador = parseInt(Math.random() * 5);
-    }*/
-    cartaJogador = cartasJ[numeroCartaJogador];
-    //cartaJogador = cartas[4];
+    cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
+    cartaJogador = cartasJ[sorteio.numeroCartaJogador()];
+    //cartaJogador = cartasJ[11];
   
     document.getElementById("btnSortear").disabled = true;
     document.getElementById("btnJogar").disabled = false;
@@ -80,7 +152,6 @@ var cartaRafa = {
     exibirCartaJogador()
     exibirCartaEmBranco()
     var divResultado = document.getElementById("resultado");
-    htmlResultado = "<p class='resultado-final'>aspargos</p>";
     divResultado.innerHTML = null
   }
   
@@ -99,27 +170,56 @@ var cartaRafa = {
     var divResultado = document.getElementById("resultado");
   
     if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
+      let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
+      cartasJ.push(cartaConquistadaPeloJogador.pop())
       htmlResultado = "<p class='resultado-final'>Venceu</p>";
-      /*let cartaConquistada = cartas.splice(numeroCartaMaquina, 1)
-      cartasJ.push(cartaConquistada.pop())*/
-      console.log("cartas da Maquina 'cartas':", cartas)
-      console.log("cartas do Jogador 'cartasJ':", cartasJ)
+      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+      var elementoCartasJogador = document.getElementById('cartas-Jogador')
+      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     } else if (cartaMaquina.atributos[atributoSelecionado] > cartaJogador.atributos[atributoSelecionado]) {
+      let cartaConquistadaPelaMaquina = cartasJ.splice(sortearCartaJogador, 1)
+      cartas.push(cartaConquistadaPelaMaquina.pop())
       htmlResultado = "<p class='resultado-final'>Perdeu</p>"
+      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+      var elementoCartasJogador = document.getElementById('cartas-Jogador')
+      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     } else {
       htmlResultado = "<p class='resultado-final'>Empatou</p>"
+      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+      var elementoCartasJogador = document.getElementById('cartas-Jogador')
+      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     }
     divResultado.innerHTML = htmlResultado
     
     exibirCartaMaquina()
-    document.getElementById("btnJogar").disabled = true;
-    document.getElementById("btnSortear").disabled = false;
-    //resultadoFinal()
-    /*if(cartas == '') {
+
+    if(cartas == '') {
       htmlResultado = "<p class='resultado-final'>PARABÉNS, VOCÊ VENCEU!</p>";
+      divResultado.innerHTML = htmlResultado
       document.getElementById("btnJogar").disabled = true;
       document.getElementById("btnSortear").disabled = true;
-    }*/
+
+      var elementoNovoJogo = document.getElementById("novo-jogo")
+      htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
+      elementoNovoJogo.innerHTML = htmlNovoJogo
+      
+    } else if(cartasJ == '') {
+      htmlResultado = "<p class='resultado-final'>FIM DE JOGO, VOCÊ PERDEU!</p>";
+      divResultado.innerHTML = htmlResultado
+      document.getElementById("btnJogar").disabled = true;
+      document.getElementById("btnSortear").disabled = true;
+      
+      var elementoNovoJogo = document.getElementById("novo-jogo")
+      htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
+      elementoNovoJogo.innerHTML = htmlNovoJogo
+
+    } else {
+      document.getElementById("btnJogar").disabled = true;
+      document.getElementById("btnSortear").disabled = false;
+    }
   }
   
   function exibirCartaJogador(){
@@ -134,7 +234,7 @@ var cartaRafa = {
         "<input type='radio' name='atributo' value='" +
         atributo +
         "'>" +
-        atributo + " " + cartaJogador.atributos[atributo] + "<br>";
+        atributo + ": " + cartaJogador.atributos[atributo] + "<br>";
     }
     var nome = `<p class="carta-subtitle">${cartaJogador.nome}</p>`
     
@@ -153,7 +253,7 @@ var cartaRafa = {
         "<p type='radio' name='atributo' value='" +
         atributo +
         "'>" +
-        atributo + " " + cartaMaquina.atributos[atributo] + "</p>";
+        atributo + ": " + cartaMaquina.atributos[atributo] + "</p>";
     }
     var nome = `<p class="carta-subtitle">${cartaMaquina.nome}</p>`
     
@@ -172,10 +272,13 @@ var cartaRafa = {
       "<p type='radio' name='atributo' value='" +
       atributo +
       "'>" +
-      atributo + " " + "???" + "</p>";
+      atributo + ": " + "???" + "</p>";
     }
     var nome = `<p class="carta-subtitle">???</p>`
     
     divCartaMaquina.innerHTML = moldura + nome + tagHTML + opcoesTexto + "</div>"
   }
   
+  function recarregarAPagina(){
+    window.location.reload();
+}

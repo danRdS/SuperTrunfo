@@ -1,12 +1,52 @@
 body {
     font-family: 'Roboto Mono', monospace;
     min-height: 854px;
-    background-image: url('https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-07-super-trunfo-bg.png');
+    background-image: url('https://i.pinimg.com/originals/6e/24/eb/6e24eb82e16893d73bae466961a1cc0a.jpg');
     background-color: #000000;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     padding-bottom: 20vh;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cartas-Jogador {
+    margin-left: 16px;
+    margin-top: 16px;
+    color: #03e9f4;
+    font-size: 16px;
+    display: flex;
+    
+    align-self: flex-end;
+    font-weight: bolder;
+    padding: 8px 16px;
+    background:#000000;
+    border-radius: 100px;
+    border-color: #03e9f4;
+    border-style: outset;
+    position: absolute;
+    }
+    
+    .cartas-Máquina {
+    margin-left: 83%;
+    margin-top: 16px;
+    color:#03e9f4;
+    font-weight: 900;
+    font-size: 16px;
+    display: flex;
+    
+    align-self: flex-end;
+    font-weight: bolder;
+    padding: 8px 16px;
+    background:#000000;
+    border-radius: 100px;
+    border-color: #03e9f4;
+    border-style:inset;
+    position: absolute;
 }
 
 .container {
@@ -20,6 +60,7 @@ body {
 }
 
 button, .button-jogar {
+    cursor: pointer;
     padding: .8rem 1.5rem;
     margin: 1rem 0;
     border-radius: 5px;
@@ -86,6 +127,28 @@ h2 {
 
 .--spacing {
     margin-left: 2.5rem;
+}
+
+.novo-jogo {
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    color: #03e9f4;
+    background-color:black;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase; 
+    overflow: hidden;
+    transition: .5s; 
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.novo-jogo:hover {
+    cursor: pointer;
+    background: #03e9f4;
+    color: rgb(10, 11, 21);
+    border-radius: 5px; 
 }
 
 form {
