@@ -126,9 +126,23 @@ var carta1 = {
       Cosmo: 0
     }
   };
+
+  var superTrunfo = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12]
   
-  var cartas = [carta1, carta2, carta3, carta4, carta5, carta6];
-  var cartasJ = [carta7, carta8, carta9, carta10, carta11, carta12];
+  var cartas = [];
+  var cartasJ = [];
+
+  for(var i=0; i<6;i++){
+    var distribuiCarta = parseInt(Math.random() * superTrunfo.length)
+    let cartaParaMaoDoJogador = superTrunfo.splice(distribuiCarta, 1)
+    cartasJ.push(cartaParaMaoDoJogador.pop())
+}
+
+cartas = superTrunfo
+
+console.log('cartas do jogador:', cartasJ)
+console.log('\ncartas da máquina:', cartas)
+
   var cartaMaquina;
   var cartaJogador;
 
