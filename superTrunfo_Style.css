@@ -137,6 +137,7 @@ h2 {
     background-color:black;
     font-size: 13px;
     font-weight: 700;
+    text-decoration: none; /*tira o sublinhado*/
     text-transform: uppercase; 
     overflow: hidden;
     transition: .5s; 

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    min-height: 854px;
+    background-image: url('https://sm.ign.com/ign_br/screenshot/default/119350alfabetajuega-saint-seiya-240815-1_rv3x.jpg');
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding-bottom: 20vh;
+}
+
+.container {
+    text-align: center;
+    padding: 60px;
+}
+
+.main {
+    text-align: center;
+    padding: 20px;
+    margin-top:100px;
+}
+
+.page-title {
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+.btn__comecar {
+    position: relative;
+    display: inline-block;
+    padding: 20px 30px 20px 30px;
+    /*padding: 1rem;*/
+    color: #03e9f4;
+    background-color: #000000;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none; /*tira o sublinhado*/
+    text-transform: uppercase; /*coloca o texto inteiro em caixa alta*/
+    overflow: hidden;
+    transition: .5s; /*efeito de transição para aparecer o link na tela. Só conta o 1º nº*/
+    margin-top: 140px;
+    letter-spacing: 4px; /*espaço entre letras*/
+}
+
+.btn__comecar:hover {
+    /*efeito ao passar o mouse sobre o botão*/
+    background: #03e9f4;
+    color: rgb(10, 11, 21); /*cor do texto ao passar o mouse por cima*/
+    border-radius: 5px; /* arredonda as bordas*/
+}
+
+.btn__comecar span {
+    position: absolute;
+    display: block;
+}
+
+.btn__comecar span:nth-child(1) {
+    top: 0%;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.btn__comecar span:nth-child(2) {
+    top: -100%;
+    right: 0%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.btn__comecar span:nth-child(3) {
+    bottom: 0%;
+    right: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.btn__comecar span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
