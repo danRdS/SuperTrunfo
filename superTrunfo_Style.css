@@ -73,8 +73,8 @@ h2 {
 }
 
 #carta-jogador, #carta-maquina {
-    width: 360px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     overflow: auto;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -82,7 +82,7 @@ h2 {
     display: flex;
     align-items: flex-end;
     position: relative;
-    background-size: 350px 300px;
+    background-size: 370px 375px;
     background-repeat: no-repeat;
     background-position-x: 5px;
     background-position-y: 10px;
@@ -105,14 +105,15 @@ h2 {
 }
 
 .carta-status {
-    height: 160px;
+    height: 199px;
     margin: 2rem;
+    text-align: justify;
     color: white;
     z-index: 2;
 }
 
 .carta-status input {
-    margin: 20px 10px;
+    margin: 10px 10px;
 }
 
 .resultado-final {
@@ -137,7 +138,7 @@ h2 {
     background-color:black;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none; /*tira o sublinhado*/
+    text-decoration: none;
     text-transform: uppercase; 
     overflow: hidden;
     transition: .5s; 
@@ -146,6 +147,53 @@ h2 {
 }
 
 .novo-jogo:hover {
+    cursor: pointer;
+    background: #03e9f4;
+    color: rgb(10, 11, 21);
+    border-radius: 5px; 
+}
+
+.mao-Jogador {
+    min-width: 300px;
+    text-align: left;
+    padding: 20px;
+    color: #03e9f4;
+    background:black;
+    border-radius: 20px;
+    border-color: #03e9f4;
+    border-style: outset;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU");
+    visibility: visible;
+    /* 
+    "https://wilderkoda.files.wordpress.com/2012/07/011.jpg"
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU"
+    
+    */
+    background-size: contain;
+    /*background-position: center top;*/
+    /*background-repeat: no-repeat;
+    padding-bottom: 20vh;*/
+}
+
+
+.btn__ok{
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    color: #03e9f4;
+    background-color:black;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase; 
+    overflow: hidden;
+    transition: .5s; 
+    margin-top: 20px;
+    letter-spacing: 2px;
+    margin:37%;
+}
+
+.btn__ok:hover {
     cursor: pointer;
     background: #03e9f4;
     color: rgb(10, 11, 21);
@@ -165,8 +213,9 @@ form {
 
 .carta-subtitle {
     z-index: 2;
-    position: absolute;
-    top: 16px;
+    position: absolute; 
+    /*top: 16px;*/
+    top: 26px;
     left: 37px;
     font-weight: 800;
     text-transform: uppercase;
@@ -179,5 +228,6 @@ form {
 }
 
 .carta-status p {
-    margin-bottom: 2rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0.5rem;
 }

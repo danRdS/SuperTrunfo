@@ -4,7 +4,9 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 10,
-      Cosmo: 8
+      Resistência: 8,
+      Cosmo: 8,
+      Conhecimentos: 9
     }
   };
   
@@ -14,7 +16,9 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 5,
-      Cosmo: 7
+      Resistência: 9,
+      Cosmo: 7,
+      Conhecimentos: 7
     }
   };
   
@@ -24,7 +28,9 @@ var carta1 = {
     atributos: {
       Ataque: 10,
       Defesa: 7,
-      Cosmo: 9
+      Resistência: 10,
+      Cosmo: 9,
+      Conhecimentos: 9
     }
   };
 
@@ -34,7 +40,9 @@ var carta1 = {
     atributos: {
       Ataque: 6,
       Defesa: 4,
-      Cosmo: 7
+      Resistência: 6,
+      Cosmo: 7,
+      Conhecimentos: 6
     }
   };
   
@@ -42,9 +50,11 @@ var carta1 = {
     nome: "Aioria de Leão",
     imagem: "http://pm1.narvii.com/6885/5a6a4204d55c8736142c87d7031590038a3e219er1-480-480v2_00.jpg",
     atributos: {
-      Ataque: 8,
+      Ataque: 9,
       Defesa: 7,
-      Cosmo: 8
+      Resistência: 8,
+      Cosmo: 8,
+      Conhecimentos: 5
     }
   };
   
@@ -53,8 +63,10 @@ var carta1 = {
     imagem: "http://bp3.blogger.com/_JgK7QpRWVJM/SJHdTU0_vWI/AAAAAAAAAcg/6UP6gor43t4/s400/shaka.bmp",
     atributos: {
       Ataque: 9,
-      Defesa: 8,
-      Cosmo: 10
+      Defesa: 10,
+      Resistência: 8,
+      Cosmo: 10,
+      Conhecimentos: 8
     }
   };
 
@@ -64,7 +76,9 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 10,
-      Cosmo: 9
+      Resistência: 9,
+      Cosmo: 9,
+      Conhecimentos: 10
     }
   };
 
@@ -74,16 +88,21 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 7,
-      Cosmo: 7
+      Resistência: 6,
+      Cosmo: 7,
+      Conhecimentos: 7
     }
   };
+
   var carta9 = {
     nome: "Aioros de Sagitário",
     imagem: "https://pm1.narvii.com/6867/392b5d747df88a35bc5b41bdca1c930ae0922e76r1-443-332v2_hq.jpg",
     atributos: {
       Ataque: 9,
       Defesa: 7,
-      Cosmo: 9
+      Resistência: 9,
+      Cosmo: 9,
+      Conhecimentos: 10
     }
   };
 
@@ -93,7 +112,9 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 7,
-      Cosmo: 7
+      Resistência: 8,
+      Cosmo: 7,
+      Conhecimentos: 6
     }
   };
 
@@ -103,7 +124,9 @@ var carta1 = {
     atributos: {
       Ataque: 8,
       Defesa: 6,
-      Cosmo: 7
+      Resistência: 7,
+      Cosmo: 7,
+      Conhecimentos: 8
     }
   };
 
@@ -113,7 +136,9 @@ var carta1 = {
     atributos: {
       Ataque: 6,
       Defesa: 5,
-      Cosmo: 6
+      Resistência: 6,
+      Cosmo: 6,
+      Conhecimentos: 7
     }
   };
 
@@ -121,12 +146,14 @@ var carta1 = {
     nome: "???",
     imagem: "https://i.pinimg.com/736x/d3/ff/50/d3ff5055dcced901eda0bf9f82362aa2.jpg",
     atributos: {
-      Ataque: 0,
-      Defesa: 0,
-      Cosmo: 0
+      Ataque: "???",
+      Defesa: "???",
+      Resistência: "???",
+      Cosmo: "???",
+      Conhecimentos: "???"
     }
   };
-
+  
   var superTrunfo = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12]
   
   var cartas = [];
@@ -154,12 +181,38 @@ console.log('\ncartas da máquina:', cartas)
       return sortearCartaJogador = parseInt(Math.random() * cartasJ.length)
     }
   }
+
+  var divMaoJogador = document.getElementById("mao-jogador")
+  var tagHTMLMaoJogador = "<div class='mao-jogador' id='mao-jogador'>"
+
+  var nomes = ''
+  console.log('Mão do jogador:\n')
+
+  for(var card= 0; card<cartasJ.length; card++){
+      console.log(' Carta', card+1, ':', cartasJ[card].nome, ' | atributos:', cartasJ[card].atributos)
+     
+      var cartaAtual = cartasJ[card]
+      var opcoesAtrib = ''
+      for(var nomeAtributos in cartaAtual.atributos){
+        opcoesAtrib += "<p name='nomeAtributos' value='" + nomeAtributos + "'> " + nomeAtributos + ": "+ cartaAtual.atributos[nomeAtributos] + "| " + "<br>"
+      }
+      nomes += "<p>"+ "Nome: " + cartaAtual.nome  + opcoesAtrib + "<br>" 
+    
+    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<u>Cartas:</u>" + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
+  }
   
-  function sortearCarta() {
-    cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
-    cartaJogador = cartasJ[sorteio.numeroCartaJogador()];
-    //cartaJogador = cartasJ[11];
+function Ok(){
+  divMaoJogador.innerHTML = null
+  //divMaoJogador.style= "visibility: hidden";
+}
+
+
+function sortearCarta() {
+  divMaoJogador.innerHTML = null
   
+  cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
+  cartaJogador = cartasJ[sorteio.numeroCartaJogador()];
+
     document.getElementById("btnSortear").disabled = true;
     document.getElementById("btnJogar").disabled = false;
   
@@ -182,7 +235,7 @@ console.log('\ncartas da máquina:', cartas)
   function jogar() {
     var atributoSelecionado = obtemAtributoSelecionado();
     var divResultado = document.getElementById("resultado");
-  
+    
     if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
       let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
       cartasJ.push(cartaConquistadaPeloJogador.pop())
@@ -281,14 +334,14 @@ console.log('\ncartas da máquina:', cartas)
     var tagHTML = "<div id= 'opcoes' class='carta-status'>"
     
     var opcoesTexto = ""
-    for (var atributo in cartaMaquina.atributos) {
+    for (var atributo in cartaOculta.atributos) {
       opcoesTexto +=
-      "<p type='radio' name='atributo' value='" +
+       "<p type='radio' name='atributo' value='" +
       atributo +
       "'>" +
-      atributo + ": " + "???" + "</p>";
+      atributo + ": " + cartaOculta.atributos[atributo] + "</p>";
     }
-    var nome = `<p class="carta-subtitle">???</p>`
+    var nome = `<p class="carta-subtitle">${cartaOculta.nome}</p>`
     
     divCartaMaquina.innerHTML = moldura + nome + tagHTML + opcoesTexto + "</div>"
   }
