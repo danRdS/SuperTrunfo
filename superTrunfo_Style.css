@@ -70,6 +70,7 @@ button, .button-jogar {
 
 h2 {
     color: white;
+    display: none;
 }
 
 #carta-jogador, #carta-maquina {
@@ -87,6 +88,8 @@ h2 {
     background-position-x: 5px;
     background-position-y: 10px;
     border-radius: 33px;
+    z-index: 50;
+    display: none;
 }
 
 #carta-jogador h3 {
@@ -163,18 +166,18 @@ h2 {
     border-color: #03e9f4;
     border-style: outset;
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU");
-    visibility: visible;
+    background-size: contain;
+    
     /* 
     "https://wilderkoda.files.wordpress.com/2012/07/011.jpg"
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU"
-    
-    */
-    background-size: contain;
-    /*background-position: center top;*/
-    /*background-repeat: no-repeat;
-    padding-bottom: 20vh;*/
-}
+        
+    /* TESTE PARA FAZER A IMAGEM DAS CARTAS DO JOGADOR FICAR EM CIMA DA TELA*/
+    /*position: relative;
+    top: 790px;
+    z-index: 9999*/
 
+}
 
 .btn__ok{
     position: relative;

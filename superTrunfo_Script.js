@@ -186,29 +186,37 @@ console.log('\ncartas da máquina:', cartas)
   var tagHTMLMaoJogador = "<div class='mao-jogador' id='mao-jogador'>"
 
   var nomes = ''
-  console.log('Mão do jogador:\n')
 
-  for(var card= 0; card<cartasJ.length; card++){
-      console.log(' Carta', card+1, ':', cartasJ[card].nome, ' | atributos:', cartasJ[card].atributos)
-     
-      var cartaAtual = cartasJ[card]
-      var opcoesAtrib = ''
-      for(var nomeAtributos in cartaAtual.atributos){
-        opcoesAtrib += "<p name='nomeAtributos' value='" + nomeAtributos + "'> " + nomeAtributos + ": "+ cartaAtual.atributos[nomeAtributos] + "| " + "<br>"
-      }
-      nomes += "<p>"+ "Nome: " + cartaAtual.nome  + opcoesAtrib + "<br>" 
+  for(var card=0; card<cartasJ.length; card++){
     
-    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<u>Cartas:</u>" + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
+    //console.log(' Carta', card+1, ':', cartasJ[card].nome, ' | atributos:', cartasJ[card].atributos)
+    
+    var cartaAtual = cartasJ[card]
+    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">'
+
+    var opcoesAtrib = ''
+    for(var nomeAtributos in cartaAtual.atributos){
+      opcoesAtrib += "<p name='nomeAtributos' value='" + nomeAtributos + "'> " + nomeAtributos + ": "+ cartaAtual.atributos[nomeAtributos] + "<br>"
+    }
+    nomes += "<p>"+ "Nome: " + cartaAtual.nome  + opcoesAtrib + "<br>" 
+    
+    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<u>Suas cartas:</u>" + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
   }
   
-function Ok(){
-  divMaoJogador.innerHTML = null
-  //divMaoJogador.style= "visibility: hidden";
+  document.getElementById("btnSortear").disabled = true;
+
+  function Ok(){
+    //divMaoJogador.innerHTML = null
+    document.getElementById("mao-jogador").style.display = "none"; // ou "block"
+    document.getElementById("carta-jogador").style.display = "flex";
+    document.getElementById("carta-maquina").style.display = "flex";
+    document.getElementById("h2").style.display = "block";
+    document.getElementById("btnSortear").disabled = false;
+  //alert("Alert!!")
 }
 
-
 function sortearCarta() {
-  divMaoJogador.innerHTML = null
+  //divMaoJogador.innerHTML = null
   
   cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
   cartaJogador = cartasJ[sorteio.numeroCartaJogador()];
