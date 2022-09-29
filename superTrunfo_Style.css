@@ -19,7 +19,7 @@ body {
     margin-top: 16px;
     color: #03e9f4;
     font-size: 16px;
-    display: flex;
+    display: none;
     
     align-self: flex-end;
     font-weight: bolder;
@@ -37,7 +37,7 @@ body {
     color:#03e9f4;
     font-weight: 900;
     font-size: 16px;
-    display: flex;
+    display: none;
     
     align-self: flex-end;
     font-weight: bolder;
@@ -71,6 +71,14 @@ button, .button-jogar {
 h2 {
     color: white;
     display: none;
+}
+
+h4 {
+    color: #03e9f4;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    /*display: flex;*/
 }
 
 #carta-jogador, #carta-maquina {
@@ -160,7 +168,9 @@ h2 {
     min-width: 300px;
     text-align: left;
     padding: 20px;
-    color: #03e9f4;
+    /*color: #03e9f4;*/
+    color:gold;
+    font-weight: 600;
     background:black;
     border-radius: 20px;
     border-color: #03e9f4;
@@ -177,6 +187,11 @@ h2 {
     top: 790px;
     z-index: 9999*/
 
+}
+
+.p {
+    color:#03e9f4;
+    background-color: #000000;
 }
 
 .btn__ok{

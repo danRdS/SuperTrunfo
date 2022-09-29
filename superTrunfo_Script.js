@@ -167,8 +167,8 @@ var carta1 = {
 
 cartas = superTrunfo
 
-console.log('cartas do jogador:', cartasJ)
-console.log('\ncartas da máquina:', cartas)
+/*console.log('cartas do jogador:', cartasJ)
+console.log('\ncartas da máquina:', cartas)*/
 
   var cartaMaquina;
   var cartaJogador;
@@ -176,50 +176,50 @@ console.log('\ncartas da máquina:', cartas)
   var sorteio = {
     numeroCartaMaquina(){
       return sortearCartaMaquina = parseInt(Math.random() * cartas.length)
-    },
-    numeroCartaJogador(){
-      return sortearCartaJogador = parseInt(Math.random() * cartasJ.length)
     }
   }
 
   var divMaoJogador = document.getElementById("mao-jogador")
   var tagHTMLMaoJogador = "<div class='mao-jogador' id='mao-jogador'>"
-
+  
+window.onload = function mostrarMaoDoJogador(){
   var nomes = ''
-
+  
   for(var card=0; card<cartasJ.length; card++){
-    
-    //console.log(' Carta', card+1, ':', cartasJ[card].nome, ' | atributos:', cartasJ[card].atributos)
-    
+        
     var cartaAtual = cartasJ[card]
-    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">'
-
+  
     var opcoesAtrib = ''
+    var numeroDaCarta = 1
     for(var nomeAtributos in cartaAtual.atributos){
       opcoesAtrib += "<p name='nomeAtributos' value='" + nomeAtributos + "'> " + nomeAtributos + ": "+ cartaAtual.atributos[nomeAtributos] + "<br>"
     }
-    nomes += "<p>"+ "Nome: " + cartaAtual.nome  + opcoesAtrib + "<br>" 
+    nomes += "<p class='p'>"+ "Carta " + (card + numeroDaCarta) + ": " + cartaAtual.nome  + opcoesAtrib + "<br>" 
     
-    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<u>Suas cartas:</u>" + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
+    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
   }
   
   document.getElementById("btnSortear").disabled = true;
-
-  function Ok(){
-    //divMaoJogador.innerHTML = null
-    document.getElementById("mao-jogador").style.display = "none"; // ou "block"
-    document.getElementById("carta-jogador").style.display = "flex";
-    document.getElementById("carta-maquina").style.display = "flex";
-    document.getElementById("h2").style.display = "block";
-    document.getElementById("btnSortear").disabled = false;
-  //alert("Alert!!")
+  
 }
 
-function sortearCarta() {
-  //divMaoJogador.innerHTML = null
-  
-  cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
-  cartaJogador = cartasJ[sorteio.numeroCartaJogador()];
+
+function Ok(){
+  document.getElementById("mao-jogador").style.display = "none";
+  document.getElementById("carta-jogador").style.display = "flex";
+  document.getElementById("carta-maquina").style.display = "flex";
+  document.getElementById("h2").style.display = "block";
+  document.getElementById("h4").style.display = "none";
+  document.getElementById("cartas-Jogador").style.display = "flex";
+  document.getElementById("cartas-Máquina").style.display = "flex";
+  document.getElementById("btnSortear").disabled = false;
+  //alert("Alert!!")
+  }
+
+  function iniciarRodada() { 
+      
+    cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
+    cartaJogador = cartasJ[0];
 
     document.getElementById("btnSortear").disabled = true;
     document.getElementById("btnJogar").disabled = false;
@@ -228,6 +228,10 @@ function sortearCarta() {
     exibirCartaEmBranco()
     var divResultado = document.getElementById("resultado");
     divResultado.innerHTML = null
+
+    console.log('cartas do jogador:', cartasJ)
+    console.log('\ncartas da máquina:', cartas)
+
   }
   
   function obtemAtributoSelecionado() {
@@ -247,13 +251,15 @@ function sortearCarta() {
     if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
       let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
       cartasJ.push(cartaConquistadaPeloJogador.pop())
+      let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+      cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
       htmlResultado = "<p class='resultado-final'>Venceu</p>";
       var elementoCartasMaquina = document.getElementById('cartas-Máquina')
       elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
       var elementoCartasJogador = document.getElementById('cartas-Jogador')
       elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     } else if (cartaMaquina.atributos[atributoSelecionado] > cartaJogador.atributos[atributoSelecionado]) {
-      let cartaConquistadaPelaMaquina = cartasJ.splice(sortearCartaJogador, 1)
+      let cartaConquistadaPelaMaquina = cartasJ.splice(cartasJ[0], 1)
       cartas.push(cartaConquistadaPelaMaquina.pop())
       htmlResultado = "<p class='resultado-final'>Perdeu</p>"
       var elementoCartasMaquina = document.getElementById('cartas-Máquina')
@@ -261,14 +267,16 @@ function sortearCarta() {
       var elementoCartasJogador = document.getElementById('cartas-Jogador')
       elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     } else {
+      let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+      cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
       htmlResultado = "<p class='resultado-final'>Empatou</p>"
       var elementoCartasMaquina = document.getElementById('cartas-Máquina')
       elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
       var elementoCartasJogador = document.getElementById('cartas-Jogador')
       elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
     }
+
     divResultado.innerHTML = htmlResultado
-    
     exibirCartaMaquina()
 
     if(cartas == '') {
