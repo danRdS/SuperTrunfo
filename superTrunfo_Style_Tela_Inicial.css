@@ -44,9 +44,12 @@ body {
 
 .btn__comecar:hover {
     /*efeito ao passar o mouse sobre o botão*/
-    background: #03e9f4;
+    /*background: #03e9f4;*/
+    background: #cfc72d;
     color: rgb(10, 11, 21); /*cor do texto ao passar o mouse por cima*/
     border-radius: 5px; /* arredonda as bordas*/
+    /*box-shadow: 0 0 5px #8f7cec, 0 0 25px #8f7cec, 0 0  50px #8f7cec, 0 0 100px #8f7cec;*/
+    box-shadow: 0 0 5px palegoldenrod, 0 0 25px palegoldenrod, 0 0  50px palegoldenrod, 0 0 100px palegoldenrod;
 }
 
 .btn__comecar span {
