@@ -12,9 +12,9 @@ body {
 .cabecalho {
     display: flex;
     justify-content: space-between;
-  }
+}
 
-  .cartas-Jogador {
+.cartas-Jogador {
     margin-left: 16px;
     margin-top: 16px;
     color: #03e9f4;
@@ -29,9 +29,9 @@ body {
     border-color: #03e9f4;
     border-style: outset;
     position: absolute;
-    }
+}
     
-    .cartas-Máquina {
+.cartas-Máquina {
     margin-left: 83%;
     margin-top: 16px;
     color:#03e9f4;
@@ -78,7 +78,7 @@ h4 {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 600;
-    /*display: flex;*/
+    letter-spacing: 2px;
 }
 
 #carta-jogador, #carta-maquina {
@@ -161,15 +161,17 @@ h4 {
     cursor: pointer;
     background: #03e9f4;
     color: rgb(10, 11, 21);
+    box-shadow: 0 0 5px #8f7cec, 0 0 25px #8f7cec, 0 0  50px #8f7cec, 0 0 100px #8f7cec;
     border-radius: 5px; 
 }
 
 .mao-Jogador {
-    min-width: 300px;
-    text-align: left;
+    width: 40%;
+    height: 10%;
+    text-align: center;
     padding: 20px;
-    /*color: #03e9f4;*/
     color:gold;
+    text-shadow: #000 1px 3px 1px;
     font-weight: 600;
     background:black;
     border-radius: 20px;
@@ -178,20 +180,19 @@ h4 {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU");
     background-size: contain;
     
-    /* 
-    "https://wilderkoda.files.wordpress.com/2012/07/011.jpg"
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QQofcCv554yOuhN13ynvayh6KdxG0NtxslD0yCCmPRKCOkvse4cSLE-nUHoA-Y9C_3g&usqp=CAU"
-        
-    /* TESTE PARA FAZER A IMAGEM DAS CARTAS DO JOGADOR FICAR EM CIMA DA TELA*/
-    /*position: relative;
-    top: 790px;
-    z-index: 9999*/
-
 }
 
+.mao-Jogador
+
 .p {
-    color:#03e9f4;
+    color: gold;
+    text-align: center;
+    max-width: 65%;
+    margin-left: 17%;
     background-color: #000000;
+    box-shadow: 0 0 5px palegoldenrod, 0 0 25px palegoldenrod, 0 0  50px palegoldenrod, 0 0 100px palegoldenrod;
+    border-radius: 90px;
+
 }
 
 .btn__ok{
@@ -215,7 +216,8 @@ h4 {
     cursor: pointer;
     background: #03e9f4;
     color: rgb(10, 11, 21);
-    border-radius: 5px; 
+    border-radius: 5px;
+    box-shadow: 0 0 5px #8f7cec, 0 0 25px #8f7cec, 0 0  50px #8f7cec, 0 0 100px #8f7cec;
 }
 
 form {
@@ -225,7 +227,8 @@ form {
 
 .wrapper {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: space-evenly;
     width: 100%;
 }
 

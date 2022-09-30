@@ -154,49 +154,45 @@ var carta1 = {
     }
   };
   
-  var superTrunfo = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12]
-  
-  var cartas = [];
-  var cartasJ = [];
+var superTrunfo = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12]
 
-  for(var i=0; i<6;i++){
-    var distribuiCarta = parseInt(Math.random() * superTrunfo.length)
-    let cartaParaMaoDoJogador = superTrunfo.splice(distribuiCarta, 1)
-    cartasJ.push(cartaParaMaoDoJogador.pop())
+var cartas = [];
+var cartasJ = [];
+
+for(var i=0; i<6; i++){
+  var distribuiCarta = parseInt(Math.random() * superTrunfo.length)
+  let cartaParaMaoDoJogador = superTrunfo.splice(distribuiCarta, 1)
+  cartasJ.push(cartaParaMaoDoJogador.pop())
 }
 
 cartas = superTrunfo
 
-/*console.log('cartas do jogador:', cartasJ)
-console.log('\ncartas da máquina:', cartas)*/
+var cartaMaquina;
+var cartaJogador;
 
-  var cartaMaquina;
-  var cartaJogador;
-
-  var sorteio = {
-    numeroCartaMaquina(){
-      return sortearCartaMaquina = parseInt(Math.random() * cartas.length)
-    }
+var sorteio = {
+  numeroCartaMaquina(){
+    return sortearCartaMaquina = parseInt(Math.random() * cartas.length)
   }
+}
 
-  var divMaoJogador = document.getElementById("mao-jogador")
-  var tagHTMLMaoJogador = "<div class='mao-jogador' id='mao-jogador'>"
+var divMaoJogador = document.getElementById("mao-jogador")
   
 window.onload = function mostrarMaoDoJogador(){
   var nomes = ''
   
   for(var card=0; card<cartasJ.length; card++){
-        
-    var cartaAtual = cartasJ[card]
-  
+    var cartaAtual = cartasJ[card]  
     var opcoesAtrib = ''
     var numeroDaCarta = 1
+
     for(var nomeAtributos in cartaAtual.atributos){
       opcoesAtrib += "<p name='nomeAtributos' value='" + nomeAtributos + "'> " + nomeAtributos + ": "+ cartaAtual.atributos[nomeAtributos] + "<br>"
     }
-    nomes += "<p class='p'>"+ "Carta " + (card + numeroDaCarta) + ": " + cartaAtual.nome  + opcoesAtrib + "<br>" 
     
-    divMaoJogador.innerHTML = tagHTMLMaoJogador + "<br>" + nomes + "<br>" + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>" + "</div>"
+    nomes += "<p class='p'>" + "Carta " + (card + numeroDaCarta) + ": " + cartaAtual.nome  + opcoesAtrib + "</p><br>" 
+    
+    divMaoJogador.innerHTML = nomes + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>"
   }
   
   document.getElementById("btnSortear").disabled = true;
