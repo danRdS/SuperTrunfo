@@ -195,7 +195,7 @@ window.onload = function mostrarMaoDoJogador(){
     divMaoJogador.innerHTML = nomes + "<button class='btn__ok' type='button' id='btnOk' onclick='Ok()'>ok</button>"
   }
   
-  document.getElementById("btnSortear").disabled = true;
+  document.getElementById("btnIniciarRodada").disabled = true;
   
 }
 
@@ -208,28 +208,38 @@ function Ok(){
   document.getElementById("h4").style.display = "none";
   document.getElementById("cartas-Jogador").style.display = "flex";
   document.getElementById("cartas-Máquina").style.display = "flex";
-  document.getElementById("btnSortear").disabled = false;
+  document.getElementById("btnIniciarRodada").disabled = false;
   //alert("Alert!!")
   }
 
+  var teste = []
+  var testeJ = []
+  var atributoMaquina
+
+  
   function iniciarRodada() { 
       
     cartaMaquina = cartas[sorteio.numeroCartaMaquina()];
     cartaJogador = cartasJ[0];
-
-    document.getElementById("btnSortear").disabled = true;
+    
+    document.getElementById("btnIniciarRodada").disabled = true;
     document.getElementById("btnJogar").disabled = false;
   
     exibirCartaJogador()
     exibirCartaEmBranco()
+    
     var divResultado = document.getElementById("resultado");
     divResultado.innerHTML = null
-
+    
     console.log('cartas do jogador:', cartasJ)
     console.log('\ncartas da máquina:', cartas)
-
+    
+    
   }
   
+  let vez = 1
+
+
   function obtemAtributoSelecionado() {
     var radioAtributos = document.getElementsByName("atributo");
   
@@ -238,69 +248,226 @@ function Ok(){
         return radioAtributos[i].value;
       }
     }
-  }
-  
-  function jogar() {
-    var atributoSelecionado = obtemAtributoSelecionado();
-    var divResultado = document.getElementById("resultado");
     
-    if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
-      let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
-      cartasJ.push(cartaConquistadaPeloJogador.pop())
-      let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
-      cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
-      htmlResultado = "<p class='resultado-final'>Venceu</p>";
-      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
-      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
-      var elementoCartasJogador = document.getElementById('cartas-Jogador')
-      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
-    } else if (cartaMaquina.atributos[atributoSelecionado] > cartaJogador.atributos[atributoSelecionado]) {
-      let cartaConquistadaPelaMaquina = cartasJ.splice(cartasJ[0], 1)
-      cartas.push(cartaConquistadaPelaMaquina.pop())
-      htmlResultado = "<p class='resultado-final'>Perdeu</p>"
-      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
-      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
-      var elementoCartasJogador = document.getElementById('cartas-Jogador')
-      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
-    } else {
-      let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
-      cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
-      htmlResultado = "<p class='resultado-final'>Empatou</p>"
-      var elementoCartasMaquina = document.getElementById('cartas-Máquina')
-      elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
-      var elementoCartasJogador = document.getElementById('cartas-Jogador')
-      elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
-    }
-
-    divResultado.innerHTML = htmlResultado
-    exibirCartaMaquina()
-
-    if(cartas == '') {
-      htmlResultado = "<p class='resultado-final'>PARABÉNS, VOCÊ VENCEU!</p>";
-      divResultado.innerHTML = htmlResultado
-      document.getElementById("btnJogar").disabled = true;
-      document.getElementById("btnSortear").disabled = true;
-
-      var elementoNovoJogo = document.getElementById("novo-jogo")
-      htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
-      elementoNovoJogo.innerHTML = htmlNovoJogo
-      
-    } else if(cartasJ == '') {
-      htmlResultado = "<p class='resultado-final'>FIM DE JOGO, VOCÊ PERDEU!</p>";
-      divResultado.innerHTML = htmlResultado
-      document.getElementById("btnJogar").disabled = true;
-      document.getElementById("btnSortear").disabled = true;
-      
-      var elementoNovoJogo = document.getElementById("novo-jogo")
-      htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
-      elementoNovoJogo.innerHTML = htmlNovoJogo
-
-    } else {
-      document.getElementById("btnJogar").disabled = true;
-      document.getElementById("btnSortear").disabled = false;
-    }
-  }
+  } 
   
+  
+  function obtemAtributoSelecionadoMaquina(){
+
+    var escolha = ''
+    for(var atributo in cartaMaquina.atributos){
+      console.log(atributo + ":", cartaMaquina.atributos[atributo])
+      teste.push(cartaMaquina.atributos[atributo])
+    }
+    
+    for(var a = 0; a<teste.length; a++){
+      if(escolha < teste[a]){
+        escolha = teste[a]
+      }
+    }
+
+    atributoMaquina = teste.indexOf(escolha)
+    console.log('Atributo da máquina(indice):', atributoMaquina, ' | valor do atributo:', teste[atributoMaquina])
+    console.log('teste:', teste)
+
+    for(var atributo in cartaJogador.atributos){
+      console.log(atributo + ":", cartaJogador.atributos[atributo])
+      testeJ.push(cartaJogador.atributos[atributo])
+    }
+    
+    var atributoJogador = teste.indexOf(escolha)
+    console.log('Atributo do jogador(indice):', atributoJogador, ' | valor do atributo:', testeJ[atributoJogador])
+    console.log('testeJ:', testeJ)
+
+    return atributoMaquina
+  }
+
+
+
+ function jogar() {
+  switch(vez){
+    case 1:
+      var atributoSelecionado = obtemAtributoSelecionado();
+      var divResultado = document.getElementById("resultado");
+      
+      if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
+        let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
+        cartasJ.push(cartaConquistadaPeloJogador.pop())
+        let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+        cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
+        htmlResultado = "<p class='resultado-final'>Venceu</p>";
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+        vez = 1
+        console.log('vez:', vez)
+        
+      } else if (cartaMaquina.atributos[atributoSelecionado] > cartaJogador.atributos[atributoSelecionado]) {
+        let cartaConquistadaPelaMaquina = cartasJ.splice(cartasJ[0], 1)
+        cartas.push(cartaConquistadaPelaMaquina.pop())
+        htmlResultado = "<p class='resultado-final'>Perdeu</p>"
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+        vez = 2
+        console.log('vez:', vez)
+
+      } else {
+        let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+        cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
+        htmlResultado = "<p class='resultado-final'>Empatou</p>"
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+        console.log('vez:', vez)
+
+      }
+
+      divResultado.innerHTML = htmlResultado
+      exibirCartaMaquina()
+      
+      if(cartas == '') {
+        htmlResultado = "<p class='resultado-final'>PARABÉNS, VOCÊ VENCEU!</p>";
+        divResultado.innerHTML = htmlResultado
+        document.getElementById("btnJogar").disabled = true;
+        document.getElementById("btnIniciarRodada").disabled = true;
+
+        var elementoNovoJogo = document.getElementById("novo-jogo")
+        htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
+        elementoNovoJogo.innerHTML = htmlNovoJogo
+        
+      } else if(cartasJ == '') {
+        htmlResultado = "<p class='resultado-final'>FIM DE JOGO, VOCÊ PERDEU!</p>";
+        divResultado.innerHTML = htmlResultado
+        document.getElementById("btnJogar").disabled = true;
+        document.getElementById("btnIniciarRodada").disabled = true;
+        
+        var elementoNovoJogo = document.getElementById("novo-jogo")
+        htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
+        elementoNovoJogo.innerHTML = htmlNovoJogo
+
+      } else {
+        document.getElementById("btnJogar").disabled = true;
+        document.getElementById("btnIniciarRodada").disabled = false;
+      }
+      break
+    case 2: 
+      var divResultado = document.getElementById("resultado");
+      var atributoSelecionado = obtemAtributoSelecionadoMaquina()
+      var escolhaDaMaquina = ''
+      
+      console.log('atributoMaquina:', atributoSelecionado)
+  
+        switch(atributoSelecionado){
+          case 0:
+            console.log('atributo da máquina:', atributoSelecionado, 'Ataque')
+            escolhaDaMaquina = 'Ataque'
+            break
+          case 1:
+            console.log('atributo da máquina:', atributoSelecionado, 'Defesa')
+            escolhaDaMaquina = 'Defesa'
+            break
+          case 2:
+            console.log('atributo da máquina:', atributoSelecionado, 'Resistência')
+            escolhaDaMaquina = 'Resistência'
+            break
+          case 3:
+            console.log('atributo da máquina:', atributoSelecionado, 'Cosmo')
+            escolhaDaMaquina = 'Cosmo'
+            break
+          case 4:
+            console.log('atributo da máquina:', atributoSelecionado, 'Conhecimentos')
+            escolhaDaMaquina = 'Conhecimentos'
+            break
+        }
+  
+      console.log('atributoMaquina:', atributoSelecionado)
+      htmlA = "<p1 class='resultado-final'>Opção escolhida pela máquina: " + escolhaDaMaquina + "</p1>"
+      
+      if(teste[atributoSelecionado] > testeJ[atributoSelecionado]){
+        let cartaConquistadaPelaMaquina = cartasJ.splice(cartasJ[0], 1)
+        cartas.push(cartaConquistadaPelaMaquina.pop())
+        
+         
+        htmlResultado = "<p class='resultado-final'>Perdeu</p>";
+        teste = []
+        testeJ = []
+        console.log('teste:', teste, "\ntesteJ:", testeJ)
+  
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+
+        vez = 2
+        console.log('vez:', vez)
+        
+  
+      } else if (teste[atributoSelecionado] < testeJ[atributoSelecionado]){
+        let cartaConquistadaPeloJogador = cartas.splice(sortearCartaMaquina, 1)
+        cartasJ.push(cartaConquistadaPeloJogador.pop())
+        let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+        cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
+        
+        
+        htmlResultado = "<p class='resultado-final'>Venceu</p>"
+        teste = []
+        testeJ = []
+        console.log('teste:', teste, "\ntesteJ:", testeJ)
+        
+  
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+
+        vez = 1
+        console.log('vez:', vez)
+  
+  
+      } else {
+        
+        let cartaParaFimDoBaralhoJogador = cartasJ.splice(cartasJ[0], 1)
+        cartasJ.push(cartaParaFimDoBaralhoJogador.pop())
+        htmlResultado = "<p class='resultado-final'>Empatou</p>"
+        teste = []
+        testeJ = []
+        console.log('teste:', teste, "\ntesteJ:", testeJ)
+        var elementoCartasMaquina = document.getElementById('cartas-Máquina')
+        elementoCartasMaquina.innerHTML = 'Cartas da Máquina: ' + cartas.length
+        var elementoCartasJogador = document.getElementById('cartas-Jogador')
+        elementoCartasJogador.innerHTML = 'Cartas do Jogador: ' + cartasJ.length
+        console.log('vez:', vez)
+        
+      }
+      
+  
+      exibirCartaMaquina()
+      divResultado.innerHTML = htmlResultado + "<br>" + htmlA
+  
+      document.getElementById("btnJogar").disabled = true;
+      document.getElementById("btnIniciarRodada").disabled = false;
+  
+    }   
+  } 
+
+
+  
+
+  // function jogar(){
+    
+  
+  
+    //}
+   
+
+  
+  
+  
+
   function exibirCartaJogador(){
     var divCartaJogador = document.getElementById("carta-jogador")
     divCartaJogador.style.backgroundImage = `url(${cartaJogador.imagem})`
@@ -329,7 +496,7 @@ function Ok(){
     var opcoesTexto = ""
     for (var atributo in cartaMaquina.atributos) {
       opcoesTexto +=
-        "<p type='radio' name='atributo' value='" +
+        "<p type='radio' name='atributoM' value='" +
         atributo +
         "'>" +
         atributo + ": " + cartaMaquina.atributos[atributo] + "</p>";
@@ -348,7 +515,7 @@ function Ok(){
     var opcoesTexto = ""
     for (var atributo in cartaOculta.atributos) {
       opcoesTexto +=
-       "<p type='radio' name='atributo' value='" +
+       "<p type='radio' name='atributoM' value='" +
       atributo +
       "'>" +
       atributo + ": " + cartaOculta.atributos[atributo] + "</p>";
