@@ -1,13 +1,12 @@
 body {
     font-family: 'Roboto Mono', monospace;
     min-height: 854px;
-    background-image: url('https://sm.ign.com/ign_br/screenshot/default/119350alfabetajuega-saint-seiya-240815-1_rv3x.jpg');
+    background-image: url('https://static.wikia.nocookie.net/ssu/images/3/32/Est%C3%A1tua_de_Atena_SSH.png/revision/latest?cb=20190617220909');
     background-color: #000000;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     padding-bottom: 20vh;
-    /*zoom: 0.67;*/
 }
 
 .container {
@@ -24,6 +23,13 @@ body {
 .page-title {
     color: #ffffff;
     margin: 5px 0;
+}
+
+h2 {
+    font-size: 45px;
+    color: #cfc72d;
+    filter: drop-shadow(2px 2px 1px #FAEA10);
+    filter: drop-shadow(1px 1px 2px #FAEA10);
 }
 
 .btn__comecar {
