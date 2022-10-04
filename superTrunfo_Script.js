@@ -421,7 +421,7 @@ function Ok(){
       var elementoNovoJogo = document.getElementById("novo-jogo")
       var elementoFimDeJogo = document.getElementById("fim-de-jogo")
       htmlNovoJogo = "<button class='novo-jogo' type='button' onclick='recarregarAPagina()'>Jogar de novo</button>";
-      htmlFimDeJogo = "<a href='superTrunfo_Index_Tela_Final.html' class='fim-de-jogo'>Fim de jogo</a>";
+      htmlFimDeJogo = "<a href='superTrunfo_Tela_Final.html' class='fim-de-jogo'>Fim de jogo</a>";
       elementoNovoJogo.innerHTML = htmlNovoJogo
       elementoFimDeJogo.innerHTML = htmlFimDeJogo
 
