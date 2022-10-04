@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto Mono', monospace;
     min-height: 854px;
-    background-image: url('https://static.wikia.nocookie.net/ssu/images/3/32/Est%C3%A1tua_de_Atena_SSH.png/revision/latest?cb=20190617220909');
+    background-image: url('https://static.wikia.nocookie.net/ssu/images/2/27/Muro_das_Lamenta%C3%A7%C3%B5es_SG.png/revision/latest?cb=20180129080311');
     background-color: #000000;
     background-size: cover;
     background-position: center top;
@@ -40,19 +40,18 @@ h2 {
     background-color: #000000;
     font-size: 17px;
     font-weight: 700;
-    text-decoration: none; /*tira o sublinhado*/
-    text-transform: uppercase; /*coloca o texto inteiro em caixa alta*/
+    text-decoration: none;
+    text-transform: uppercase;
     overflow: hidden;
-    transition: .5s; /*efeito de transição para aparecer o link na tela. Só conta o 1º nº*/
+    transition: .5s;
     margin-top: 140px;
-    letter-spacing: 4px; /*espaço entre letras*/
+    letter-spacing: 4px;
 }
 
 .btn__comecar:hover {
-    /*efeito ao passar o mouse sobre o botão*/
     background: #cfc72d;
-    color: rgb(10, 11, 21); /*cor do texto ao passar o mouse por cima*/
-    border-radius: 5px; /* arredonda as bordas*/
+    color: rgb(10, 11, 21);
+    border-radius: 5px;
     box-shadow: 0 0 5px palegoldenrod, 0 0 25px palegoldenrod, 0 0  50px palegoldenrod, 0 0 100px palegoldenrod;
     border:#ffffff;
 }
